@@ -1,0 +1,103 @@
+/* ---------- ROOT / VARIABLES ---------- */
+:root {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: light;
+  --text-color: #5f4633;       /* dark brown */
+  --background-color: #fdf4e7; /* light cream */
+  --accent-color: #d97706;     /* warm orange for buttons / highlights */
+  --header-color: rgba(139, 94, 52, 0.6); /* semi-transparent tea brown */
+  --header-color-hover: rgba(139, 94, 52, 0.8);
+}
+
+/* ---------- RESET / BASE ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: var(--font-family, Arial, sans-serif);
+}
+
+/* ---------- LINKS ---------- */
+a {
+  font-weight: 500;
+  color: var(--accent-color);
+  text-decoration: none;
+}
+a:hover {
+  color: #fbbf24; /* brighter orange */
+}
+
+/* ---------- HEADINGS ---------- */
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+/* ---------- BUTTONS ---------- */
+button {
+  border-radius: 8px;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--accent-color);
+  color: #fffaf3;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: #fbbf24;
+  transform: translateY(-2px);
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* ---------- FULL-WIDTH LAYOUT FIX ---------- */
+/* Remove the flex centering from body so header/hero/footer span full width */
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  width: 100%;
+  display: block; /* not flex or place-items */
+}
+
+
+/* ---------- UTILITY ---------- */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}

@@ -1,0 +1,51 @@
+.header {
+  width: 100%;
+  position: fixed; /* change from fixed if you want it to scroll with Hero, fixed if you want sticky */
+  top: 0;
+  left: 0;
+  z-index: 100; /* ensures it sits on top of Hero */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 5%;
+  /* radius: 0 0 12px 12px; */
+  background-color: rgba(139, 94, 52, 0.3); /* semi-transparent tea brown */
+  color: #fffaf3;
+  transition: background-color 0.3s ease;
+}
+
+/* Optional: make it sticky when scrolling */
+.header.sticky {
+  position: fixed;
+  background-color: rgba(139, 94, 52, 0.8);
+}
+
+.header:hover {
+  background-color: rgba(139, 94, 52, 0.8);
+}
+
+.store-name {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.nav-links li:hover {
+  color: #fbbf24;
+}
+
+/* Responsive menu for small screens */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* can add hamburger menu later */
+  }
+}
