@@ -41,3 +41,36 @@
   font-size: 0.95rem;
   color: #5f4633;
 }
+
+.add-to-cart-btn {
+  background-color: #d69e58; /* warm tea/brown color */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6em 1.2em;
+  margin-bottom: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.add-to-cart-btn:hover {
+  background-color: #c57f3a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+/* Remove any persistent color on click */
+.add-to-cart-btn:active {
+  background-color: #d69e58;
+  transform: translateY(0);    /* optional: remove push effect */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.add-to-cart-btn:focus {
+  outline: 2px solid #c57f3a; /* darker tea color */
+  outline-offset: 2px;        /* small space between button edge and outline */
+}
+

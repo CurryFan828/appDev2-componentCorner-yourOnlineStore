@@ -1,0 +1,44 @@
+.cart-item {
+  display: flex;
+  justify-content: space-between; /* keeps remove button on the right */
+  align-items: center;
+  padding: 10px 15px;
+  border-bottom: 1px solid rgba(214, 158, 88, 0.3); /* subtle tea-themed divider */
+}
+
+.cart-item-info {
+  display: flex;
+  flex-direction: column; /* stack name and price vertically */
+  text-align: left;       /* ensures left alignment */
+}
+
+.cart-item-info h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fffaf3;
+}
+
+.cart-item-info p {
+  margin: 2px 0 0 0;
+  font-size: 0.9rem;
+  color: #e6ba85; /* warm tea color for price */
+}
+
+/* Remove button styling, unchanged from yours */
+.remove-btn {
+  background-color: #c57f3a; /* darker tea color */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4em 0.8em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+  background-color: #d69e58; /* lighter tea color on hover */
+  transform: translateY(-1px);
+}
