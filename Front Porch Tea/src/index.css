@@ -70,15 +70,15 @@ button:focus-visible {
 
 /* ---------- FULL-WIDTH LAYOUT FIX ---------- */
 /* Remove the flex centering from body so header/hero/footer span full width */
-body {
+/* body {
   margin: 0;
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
   width: 100%;
-  display: block; /* not flex or place-items */
+  display: block; not flex or place-items 
 }
-
+*/
 
 /* ---------- UTILITY ---------- */
 .container {

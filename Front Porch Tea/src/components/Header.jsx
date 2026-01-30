@@ -13,7 +13,7 @@ function Header({ storeName, cart, removeFromCart, cartTotal }) { // <-- added c
 
   return (
     <header className="header">
-      <h1 className="store-name">{storeName}</h1>
+      <h1 className="store-name"><img className = "header-logo" src="./src/images/tabLogo.png" alt="Front Porch Tea Logo" /></h1>
 
       <nav>
         <ul className="nav-links">
