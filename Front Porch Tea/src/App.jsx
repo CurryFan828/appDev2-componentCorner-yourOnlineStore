@@ -1,40 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
 import './index.css'
-import ProductCard from './components/ProductCard'
 import Header from './components/Header'
-import Hero from './components/Hero'
 import Footer from './components/Footer'
-import CartItem from "./components/CartItem";
 import { v4 as uuidv4 } from "uuid";
 
-
+// Pages
+import HomePage from "./pages/homepage";
+import ProductsPage from "./pages/ProductsPage";
+import CartPage from "./pages/CartPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage";
 
 function App() {
-
   // State for cart
   const [cart, setCart] = useState([]);
 
-  // Function to add a tea to the cart
+  // Load cart from localStorage
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(storedCart);
+  }, []);
+
+  // Save cart to localStorage
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
+
   const addToCart = (product) => {
-    setCart([
-      ...cart, 
-      { ...product, cartId: uuidv4() } // add a unique cartId
-    ]);
+    setCart([...cart, { ...product, cartId: uuidv4() }]);
   };
 
-  // Remove item from cart by filtering out its id
   const removeFromCart = (cartId) => {
     setCart((prevCart) => prevCart.filter((item) => item.cartId !== cartId));
   };
 
-  // Calculate the total price of all items in the cart
+  // Calculate total price for cart
   const cartTotal = cart.reduce((total, item) => total + item.price, 0);
 
-
-  // Tea product array
+  // Product array
   const products = [
     { id: 1, name: "Sweet Tea", price: 3.99, image: "https://southernbite.com/wp-content/uploads/2024/08/Southern-Sweet-Tea.jpg", description: "Classic southern-style sweet tea, refreshing and smooth." },
     { id: 2, name: "Strawberry Lemonade Tea", price: 4.49, image: "https://www.fifteenspatulas.com/wp-content/uploads/2018/05/Strawberry-Iced-Tea-Fifteen-Spatulas-8-640x427.jpg", description: "A fruity blend of strawberries and lemon with a tea base." },
@@ -48,40 +52,27 @@ function App() {
   ];
 
   return (
-    <>
-      <Header storeName="Front Porch Tea" cart={cart} removeFromCart={removeFromCart} cartTotal={cartTotal}/>
+    <BrowserRouter>
+      {/* Header will be shown on all pages */}
+      <Header storeName="Front Porch Tea" cart={cart} removeFromCart={removeFromCart} cartTotal={cartTotal} />
 
-      <Hero
-        title="Welcome to Front Porch Tea"
-        subtitle="Discover the finest teas for every mood"
-        ctaText="Shop Now"
-        image="https://www.teaforworld.com/wp-content/uploads/2025/05/yall-sweet-tea.jpeg"
-      />
+      {/* Routes define which page component to render */}
+      <Routes>
+        <Route path="/" element={<HomePage products={products} addToCart={addToCart} />} />
+        <Route path="/products" element={<ProductsPage products={products} addToCart={addToCart} />} />
+        <Route path="/product/:id" element={<ProductDetailsPage products={products} addToCart={addToCart} />} />
+        <Route path="/cart" element={<CartPage cart={cart} removeFromCart={removeFromCart} />} />
+      </Routes>
 
-      <div className="product-list">
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            name={product.name}
-            price={product.price}
-            image={product.image}
-            description={product.description}
-            addToCart={() => addToCart(product)} // pass function down
-          />
-        ))}
-      </div>
-
+      {/* Footer shown on all pages */}
       <Footer
         storeName="Front Porch Tea"
         address="123 Tea Lane, Cozy Town, USA"
         phone="(555) 123-4567"
         email="info@frontporchtea.com"
       />
-
-    </>
+    </BrowserRouter>
   );
 }
 
-
 export default App;
-

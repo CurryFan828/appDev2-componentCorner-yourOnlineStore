@@ -85,7 +85,15 @@
   padding: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   z-index: 1000;             /* above other elements */
+  opacity: 0;
+  transform: translateY(-6px);
+  animation: fadeIn 180ms ease forwards;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+} 
 
 /* Optional: empty cart message */
 .empty-cart {
