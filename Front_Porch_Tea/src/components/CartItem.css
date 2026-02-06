@@ -1,0 +1,120 @@
+.cart-item {
+  display: flex;
+  justify-content: space-between; /* keeps remove button on the right */
+  align-items: center;
+  padding: 8px 10px; /* reduced padding */
+  border-bottom: 1px solid rgba(214, 158, 88, 0.3); /* subtle tea-themed divider */
+  gap: 8px; /* tightened gap */
+}
+
+.cart-item-left {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* tightened gap between thumb and name */
+  min-width: 0; /* allow truncation */
+  flex: 1; /* allow left column to expand and leave space for button */
+}
+
+.cart-item-thumb {
+  width: 56px; /* slightly smaller */
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.cart-item-info {
+  display: flex;
+  flex-direction: column; /* keep name stacked */
+  text-align: left;       /* ensures left alignment */
+  min-width: 0;
+}
+
+.cart-item-info h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fffaf3; /* original light color */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-item-price p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e6ba85; /* warm tea color for price */
+}
+
+/* Remove button styling, unchanged from yours */
+.remove-btn {
+  background-color: #c57f3a; /* darker tea color */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.4em 0.8em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.remove-btn:hover {
+  background-color: #d69e58; /* lighter tea color on hover */
+  transform: translateY(-1px);
+}
+
+/* mobile-style price inside left column: hidden by default, shown in dropdown */
+.cart-item-price-mobile {
+  display: none;
+  margin-top: 4px;
+  color: #e6ba85;
+  font-weight: 700;
+}
+
+/* Dropdown-specific adjustments: show price under name and align left */
+.cart-dropdown .cart-item {
+  align-items: center; /* vertically center with image */
+  gap: 12px;
+  padding: 8px 6px;
+}
+
+.cart-dropdown .cart-item-left {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-dropdown .cart-item-price {
+  display: none; /* hide the right-side price in dropdown */
+}
+
+.cart-dropdown .cart-item-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.cart-dropdown .cart-item-info h4 {
+  white-space: normal; /* allow wrapping so name won't hide */
+  margin: 0;
+  font-size: 0.95rem;
+  color: #fffaf3;
+}
+
+.cart-dropdown .cart-item-price-mobile {
+  display: block;
+  margin-top: 4px;
+  color: #e6ba85;
+  font-weight: 700;
+}
+
+.cart-dropdown .remove-btn {
+  margin-left: 8px;
+  flex-shrink: 0; /* prevent the button from shrinking over the text */
+  align-self: center; /* vertically center with image */
+}
