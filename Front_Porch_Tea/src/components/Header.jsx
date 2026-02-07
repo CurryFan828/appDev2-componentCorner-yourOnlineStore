@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import CartItem from "./CartItem";
 import { Link } from "react-router-dom";
+import logo from "../images/tabLogo.png";
 
 
 function Header({ storeName, cart, removeFromCart, cartTotal }) { // <-- added cartTotal prop
@@ -36,7 +37,7 @@ function Header({ storeName, cart, removeFromCart, cartTotal }) { // <-- added c
 
   return (
     <header className="header" >
-      <h1 className="store-name"><img className = "header-logo" src="./src/images/tabLogo.png" alt="Front Porch Tea Logo" /></h1>
+      <h1 className="store-name"><img className = "header-logo" src={logo} alt="Front Porch Tea Logo" /></h1>
 
       <nav>
         <ul className="nav-links">
