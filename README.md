@@ -1,1 +1,0 @@
-# appDev2-componentCorner-yourOnlineStore
